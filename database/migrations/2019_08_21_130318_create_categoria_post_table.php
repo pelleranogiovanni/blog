@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactosTable extends Migration
+class CreateCategoriaPostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateContactosTable extends Migration
      */
     public function up()
     {
-        Schema::create('contactos', function (Blueprint $table) {
+        Schema::create('categoria_post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->string('email')->nullable();
+            $table->unsignedBigInteger('categoria_id');
+            $table->unsignedBigInteger('post_id');
             $table->timestamps();
+
+            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateContactosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactos');
+        Schema::dropIfExists('categoria_post');
     }
 }
