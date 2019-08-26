@@ -13,6 +13,7 @@
                         </button>
                   </div>
                   <div class="card-body">
+
                       <table class="table">
                           <thead>
                               <tr>
@@ -87,5 +88,6 @@
           </div>
       </div>
   </div>
+
 
 @endsection

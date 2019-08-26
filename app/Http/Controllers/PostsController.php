@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categoria;
+use App\Http\Requests\StorePost;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -37,8 +38,18 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
+
+        // Esto genera un arreglo $errors
+
+        // $validated = $request->validate([
+        //     'titulo' => 'required|unique:posts|min:6|max:20',
+        //     'contenido'=>'required|min:6|max:200',
+        //     'descripcion'=>'required'
+        // ]);
+
+        $validated = $request->validated();
 
         $name = "noimg.jpg";
 
