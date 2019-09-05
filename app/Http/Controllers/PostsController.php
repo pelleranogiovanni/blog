@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Categoria;
-use App\Http\Requests\StorePost;
 use App\Post;
+use App\Categoria;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePost;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -16,7 +17,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $id = Auth::user()->id; //almaceno en la variable el id del user logueado
+
+        $posts = Post::where('user_id', $id)->get(); //traigo los posts del usuario logueado con el $id
         $categorias = Categoria::all();
         return view('posts.index',compact('posts','categorias'));
 
@@ -65,7 +68,7 @@ class PostsController extends Controller
         $post->descripcion = $request->descripcion;
         $post->contenido = $request->contenido;
         $post->foto = '/img/'.$name;
-        $post->user_id = 1;
+        $post->user_id = Auth::user()->id;
         $post->save();
 
         $post->categorias()->attach($request->categorias);

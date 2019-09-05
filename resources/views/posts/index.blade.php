@@ -4,7 +4,7 @@
 
   <div class="container">
       <div class="row">
-          <div class="col-md-10">
+          <div class="col-md-12">
               <div class="card">
                   <div class="card-header">
                       <h2>Lista de Posts</h2>
@@ -30,7 +30,7 @@
                                     <td>{{$post->id}}</td>
                                     <td>{{$post->titulo}}</td>
                                     <td>
-                                        <img src="{{$post->foto}}" alt="">
+                                        <img src="{{$post->foto}}" alt="" width="150px" height="100px">
                                     </td>
                                 </tr>
 

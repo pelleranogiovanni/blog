@@ -4,7 +4,7 @@
 
   <div class="container">
       <div class="row">
-          <div class="col-md-10">
+          <div class="col-md-12">
               <div class="card">
                   <div class="card-header">
                       <h2>Lista de Categorias</h2>

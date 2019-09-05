@@ -49,6 +49,14 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="{{ route('posts.index') }}" class="nav-link">Posts</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('categorias.index') }}" class="nav-link">Categorias</a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -74,22 +82,26 @@
 
         <main class="py-4">
             @if ($errors->any())
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button class="close" type="button" data-dismiss="alert">
+                                    <span aria-hidden="true">x</span>
+                                </button>
 
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <button class="close" type="button" data-dismiss="alert">
-                        <span aria-hidden="true">x</span>
-                    </button>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>
+                                            {{$error}}
+                                        </li>
+                                    @endforeach
+                                </ul>
 
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>
-                                {{$error}}
-                            </li>
-                        @endforeach
-                    </ul>
-
+                            </div>
+                    </div>
                 </div>
-
+            </div>
             @endif
 
             @yield('content')
