@@ -21,6 +21,7 @@ class PostsController extends Controller
 
         $posts = Post::where('user_id', $id)->get(); //traigo los posts del usuario logueado con el $id
         $categorias = Categoria::all();
+
         return view('posts.index',compact('posts','categorias'));
 
     }

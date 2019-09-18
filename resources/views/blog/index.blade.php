@@ -25,7 +25,6 @@
         </div>
     @endforeach
 
-
     <!-- Pagination -->
    {{ $posts->links() }}
 

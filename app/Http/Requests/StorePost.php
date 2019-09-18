@@ -26,7 +26,8 @@ class StorePost extends FormRequest
         return [
             'titulo' => 'required|unique:posts|min:6|max:20',
             'contenido'=>'required|min:6|max:200',
-            'descripcion'=>'required'
+            'descripcion'=>'required',
+            'foto'=>'required'
         ];
     }
 }
